@@ -17,8 +17,11 @@ public class PERGUNTA_12_KEVIN {
 
     public static void main(String[] args) throws IOException {
         int[] numeros = new int[10];
+        int[] novo_vetor = new int[11];
         int num_aux;
+        int num_aux2;
         int i;
+        int novo_num;
         Random aleatorio = new Random();
         
         
@@ -27,19 +30,27 @@ public class PERGUNTA_12_KEVIN {
             numeros[i] = aleatorio.nextInt(1, 100);
         }
         
+        System.out.println("Vetor original: ");
         System.out.println(Arrays.toString(numeros));
+        Linha();
         
         for (i = 0; i < numeros.length; i++) {
-            num_aux = numeros[i];
             for (int j = i + 1; j < numeros.length; j++) {
                 if (numeros[i] > numeros[j]) {
-                    num_aux = numeros[j];
+                    num_aux = numeros[i];
+                    num_aux2 = numeros[j];
+                    
+                    numeros[i] = num_aux2;
                     numeros[j] = num_aux;
                 }
             }
         }
         
+        System.out.println("Vetor ordenado: ");
         System.out.println(Arrays.toString(numeros));
+        
+        Linha();
+        novo_num = PegaNumInt("Digite um novo numero: ");
     }
     
     public static int PegaNumInt(String texto) throws IOException {
